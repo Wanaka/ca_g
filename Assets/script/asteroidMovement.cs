@@ -11,6 +11,7 @@ public class asteroidMovement : MonoBehaviour
     private float randomRange;
     private int asteroidLife; // ändra sen när det ska bli random
     public GameObject nextAsteroid;
+    public GameObject coin;
 
     // Start is called before the first frame update
     void Start()
@@ -69,19 +70,16 @@ public class asteroidMovement : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        Debug.Log("Hit " + this.gameObject.tag);
+        Score.scoreValue++;
         Destroy(col.gameObject);
-       
-        Score.scoreValue++; // 
-
-       //asteroidlife
-       asteroidLife--;
-
+        asteroidLife--;
+        Debug.Log("Hit " + this.gameObject.tag);
         Debug.Log("Life remaining " + asteroidLife);
 
         switch (asteroidLife)
         {
         case 0:
+            createCoin();
             print ("dead");
             Destroy(this.gameObject);
 
@@ -94,28 +92,11 @@ public class asteroidMovement : MonoBehaviour
             }
             break;
         }
+    }
 
-    //    switch (asteroidLife)
-    //     {
-    //     case 2:
-    //         print ("two lifes remaining");
-    //         Destroy(this.gameObject);
-    //         createMediumAsteroidLeft();
-    //         createMediumAsteroidRight();
-    //         break;
-
-    //     case 1:
-    //         print ("one life remaining");
-    //         Destroy(this.gameObject);
-    //         createSmallAsteroidLeft(); 
-    //         createSmallAsteroidRight();
-    //         break;
-
-    //     case 0:
-    //         print ("U dead");
-    //         Destroy(this.gameObject);
-    //         break;
-    //     }
+    public void createCoin(){
+        GameObject b = Instantiate(coin) as GameObject;
+        b.transform.position =  new Vector2((transform.position.x), transform.position.y);
     }
 
     public void createMediumAsteroidLeft(){

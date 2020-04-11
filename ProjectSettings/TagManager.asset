@@ -9,6 +9,9 @@ TagManager:
   - AsteroidMedium
   - AsteroidSmall
   - Coin
+  - CoinText
+  - CoinBorder
+  - PointsText
   layers:
   - Default
   - TransparentFX

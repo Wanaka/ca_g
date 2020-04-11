@@ -81,7 +81,7 @@ public class playerMovement : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if(col.gameObject.tag == "Bullet"){ return; } 
+        if(col.gameObject.tag == "Bullet" || col.gameObject.tag == "Coin"){ return; } 
         else {
             Destroy(this.gameObject);
             Debug.Log("Catstronaut died");

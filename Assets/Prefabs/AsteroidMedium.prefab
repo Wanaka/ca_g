@@ -161,6 +161,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextAsteroid: {fileID: 1824209955791822388, guid: 3a2313f514ba34ac1907b9d9595925e8,
     type: 3}
+  coin: {fileID: 2935107110315036230, guid: e987e47b0e5c0497ebf8f5cb6481dabc, type: 3}
 --- !u!50 &6630927870667396070
 Rigidbody2D:
   serializedVersion: 4
